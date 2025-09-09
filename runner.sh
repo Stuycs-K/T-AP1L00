@@ -67,18 +67,18 @@ fi
 
 ################# Count Commits #############
 commit_count=$(git rev-list --count main)
-REQUIRED_COUNT=4
+REQUIRED_COUNT=5
 # Check if commit count is less than 5
 if [[ ! "$commit_count" =~ ^[0-9]+$ ]]; then
   echo -e "${RED}❌ Could not determine commit count. Are you in a git repo with a 'main' branch?"
   err=1
 elif [  "$commit_count" -lt "$REQUIRED_COUNT" ]; then
-  echo -e "${RED}❌ Less than $REQUIRED_COUNT commits."
+  echo -e "${RED}❌ Less than $REQUIRED_COUNT commits (you started with 1-2 when you cloned it)."
   echo -e "${RESET}Less than 4 commits in class. 3 for the madlibs, and 1 for your helloworld."
   err=1
 else
   echo -e "${GREEN}✅ Commit count is sufficient ONLY if you have 3 for the madlibs, and 1 for your helloworld."
-  echo -e "${RED}❌ You are also required to commit from home! This script will not validate if you do it"
+  echo -e "${RED}❌ You are also required to commit more from home! This script will not validate if you do it"
 fi
 
 
